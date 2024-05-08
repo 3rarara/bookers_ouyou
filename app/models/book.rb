@@ -1,6 +1,7 @@
 class Book < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
+  has_many :notifications, as: :notifiable, dependent: :destroy
   has_many :book_comments, dependent: :destroy
   has_many :week_favorites, -> { where(created_at: 1.week.ago.beginning_of_day..time.current.end_of_day) }
   has_many :view_counts, dependent: :destroy
@@ -23,6 +24,12 @@ class Book < ApplicationRecord
       @book = Book.where("title LIKE?", "%#{word}%")
     else
       @book = Book.all
+    end
+  end
+
+  after_create do
+    user.followers.each do |follower|
+      notifications.create(user_id: follower.id)
     end
   end
 end

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resource :relationships, only: [:create, :destroy]
     get "followings" => "relationships#followings", as: "followings"
     get "followers" => "relationships#followers", as: "followers"
+    get "search" => "users#search"
   end
 
   get "chat/:id" => "chats#show", as: "chat"
@@ -31,4 +32,5 @@ Rails.application.routes.draw do
   resources :notifications, only: [:update]
 
   get 'tagsearches/search', to: 'tagsearches#search'
+
 end

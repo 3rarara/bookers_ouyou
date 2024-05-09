@@ -29,4 +29,6 @@ Rails.application.routes.draw do
   end
 
   resources :notifications, only: [:update]
+
+  get 'tagsearches/search', to: 'tagsearches#search'
 end

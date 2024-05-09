@@ -32,4 +32,8 @@ class Book < ApplicationRecord
       notifications.create(user_id: follower.id)
     end
   end
+
+  scope :latest, -> {order(created_at: :desc)}
+  scope :star_count, -> {order(star: :desc)}
+
 end

